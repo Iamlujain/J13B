@@ -14,12 +14,6 @@
             align-items: center;
             height: 100vh;
         }
-        img {
-            max-width: 100vw;
-            max-height: 100vh;
-            width: auto;
-            height: auto;
-        }
         .message-screen {
             position: fixed;
             top: 0;
@@ -46,25 +40,33 @@
             font-size: 2em;
             cursor: pointer;
         }
+        .image-mapper-shape {
+            fill: rgba(0, 0, 0, 0);
+        }
+        g:hover .image-mapper-shape {
+            stroke: white;
+            stroke-width: 2px;
+            opacity: 20%;
+        }
     </style>
 </head>
 <body>
-<img src="G.png" usemap="#image-map">
-<map name="image-map">
-    <area target="" alt="1" title="1" href="#" coords="308,441,356,506" shape="rect"></area>
-    <area target="" alt="2" title="2" href="#" coords="347,351,388,413" shape="rect"></area>
-    <area target="" alt="3" title="3" href="#" coords="412,441,470,505" shape="rect"></area>
-    <area target="" alt="4" title="4" href="#" coords="449,347,507,417" shape="rect"></area>
-    <area target="" alt="5" title="5" href="#" coords="536,347,597,419" shape="rect"></area>
-    <area target="" alt="6" title="6" href="#" coords="607,346,656,417" shape="rect"></area>
-    <area target="" alt="7" title="7" href="#" coords="664,347,703,414" shape="rect"></area>
-    <area target="" alt="8" title="8" href="#" coords="724,349,788,410" shape="rect"></area>
-    <area target="" alt="9" title="9" href="#" coords="775,435,826,506" shape="rect"></area>
-    <area target="" alt="10" title="10" href="#" coords="832,435,879,513" shape="rect"></area>
-    <area target="" alt="11" title="11" href="#" coords="878,340,923,413" shape="rect"></area>
-    <area target="" alt="12" title="12" href="#" coords="935,348,973,416" shape="rect"></area>
-    <area target="" alt="13" title="13" href="#" coords="1070,347,1113,408" shape="rect"></area>
-</map>
+    <svg style="width:100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1363 676">
+        <image xlink:href="G.png" style="width: 1363px;"></image>
+        <a xlink:href="#" onclick="showMessage(0)"><g><rect x="308" y="441" width="48" height="65" class="image-mapper-shape"></rect></g></a>
+        <a xlink:href="#" onclick="showMessage(1)"><g><rect x="347" y="351" width="41" height="62" class="image-mapper-shape"></rect></g></a>
+        <a xlink:href="#" onclick="showMessage(2)"><g><rect x="412" y="441" width="58" height="63" class="image-mapper-shape"></rect></g></a>
+        <a xlink:href="#" onclick="showMessage(3)"><g><rect x="449" y="347" width="58" height="70" class="image-mapper-shape"></rect></g></a>
+        <a xlink:href="#" onclick="showMessage(4)"><g><rect x="536" y="347" width="61" height="72" class="image-mapper-shape"></rect></g></a>
+        <a xlink:href="#" onclick="showMessage(5)"><g><rect x="607" y="346" width="49" height="71" class="image-mapper-shape"></rect></g></a>
+        <a xlink:href="#" onclick="showMessage(6)"><g><rect x="664" y="347" width="39" height="67" class="image-mapper-shape"></rect></g></a>
+        <a xlink:href="#" onclick="showMessage(7)"><g><rect x="724" y="349" width="65" height="61" class="image-mapper-shape"></rect></g></a>
+        <a xlink:href="#" onclick="showMessage(8)"><g><rect x="775" y="435" width="50" height="71" class="image-mapper-shape"></rect></g></a>
+        <a xlink:href="#" onclick="showMessage(9)"><g><rect x="832" y="435" width="47" height="78" class="image-mapper-shape"></rect></g></a>
+        <a xlink:href="#" onclick="showMessage(10)"><g><rect x="878" y="340" width="45" height="72" class="image-mapper-shape"></rect></g></a>
+        <a xlink:href="#" onclick="showMessage(11)"><g><rect x="935" y="348" width="39" height="67" class="image-mapper-shape"></rect></g></a>
+        <a xlink:href="#" onclick="showMessage(12)"><g><rect x="1070" y="347" width="43" height="61" class="image-mapper-shape"></rect></g></a>
+    </svg>
 
     <div class="message-screen" id="messageScreen">
         <div class="close-btn" onclick="closeMessage()">&times;</div>
@@ -73,37 +75,28 @@
 
     <script>
         const messages = [
-            "Hey Juff! First of all, congrats on your channel's 13th anniversary!! You've achieved so much and inspired so many people along the way. I'm one of the inspired people and I wanted to thank you for the things that you've achieved: Youtube covers - As a huge Arctic Monkeys fan i had so much fun learning all of their songs, thanks to your bass covers! Your channel made me fall in love with bass, and birds :black_bird: 
-Music - I already mentioned it, but your music helped me with focus during studying, and inspired me to use my bass for creating my own melodies :guitar: 
-Community - You created something extraordinary: a Discord server where all of the people are kind and authentic, even though they come from different places around the world! It happens not more than once in a lifetime to be a part of such community on the Internet, that's why I'm very proud to be a part of it :heart: 
-All of the things you've done definitely made me a better bassist, and probably a better person too! I'm also sure that I'm not the only one to feel that way. That's why I thank you for years of dedication, your words of advice, and your hard work, that you put everyday in order to help musicians and build a community! :heart:",
-            "Hey Juff!
-
-Happy anniversary!
-
-You've inspired me so much, not only as a bassist, but as a musician in general, and I wouldn't be at the level I am today without you. 
-
-I've seen a lot of other creator-run discord servers in the past, and the one thing that separates the JuffServer from them is your unwavering commitment to this community you've built over the years. Every single person is absolutely fantastic, and instantly made me feel welcomed and a part of this wonderful community. 
-
-Happy 13 years, and here's to 13 more!",
-"During my peak of listening to Arctic Monkeys I was so addicted to their music that I felt the need to express it in another way than just listening to them. That’s when I started borrowing my sister’s bass and looking up bass tabs videos on youtube. I liked your videos the most because of the way you showed your technique AND the very chill bird. About a year later I bought my own bass so could play Fiona whenever I wanted. Learning the bass also helped me look at music in a different way, a more understanding way. Fast forward to when I joined the Arctic Monkeys discord server. How amazing to be welcomed by the person affiliated with Arctic Monkeys that I had seen the most of, even more than Alex Turner. And how incredible to learn that a youtuber you like is an amazing person.",
-"what can i even say about something so important to me? even tho i don't play bass, i wouldn't ever miss a cover or any juffbass content, simply because i know that anything i come across will be of great quality and value. and i know it will be coming from a considerate and devoted person, who lives for giving to others. and that is something to cherish, so i can't help but feel pride when i think about this little part i get to take in the juffbass corner of the world. such an awesome place to be!"
-      
+            "Hey Juff! First of all, congrats on your channel's 13th anniversary!!",
+            "Hey Juff! Happy anniversary! You've inspired me so much as a musician.",
+            "During my peak of listening to Arctic Monkeys, I started learning bass thanks to you!",
+            "What can I even say about something so important to me? I'm so proud to be part of this community.",
+            "You created something extraordinary: a Discord server where everyone is kind and authentic!",
+            "Your tutorials helped me improve a lot, and I can't thank you enough!",
+            "I discovered so many great songs because of your covers!",
+            "Seeing you play always brings a smile to my face!",
+            "Your humor and passion for music make this community so special!",
+            "You’ve built something truly amazing over the years, and we all appreciate it!",
+            "Happy 13 years, Juff! Keep rocking!",
+            "It's been a joy to follow your journey. Cheers to many more years!",
+            "Thanks for being such an incredible inspiration to all of us!"
         ];
-        let currentMessage = 0;
 
         function showMessage(index) {
             document.getElementById('messageText').innerText = messages[index];
             document.getElementById('messageScreen').classList.add('active');
-            currentMessage = index;
         }
 
         function closeMessage() {
             document.getElementById('messageScreen').classList.remove('active');
-            currentMessage++;
-            if (currentMessage < messages.length) {
-                setTimeout(() => showMessage(currentMessage), 1000);
-            }
         }
     </script>
 </body>
