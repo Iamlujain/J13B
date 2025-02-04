@@ -173,42 +173,7 @@
             commentsContainer.appendChild(img);
         });
 
-       let scrollInterval;
-        let userScrolling = false;
-
-function startAutoScroll() {
-    scrollInterval = setInterval(() => {
-        if (!userScrolling) {
-            window.scrollBy(0, 1);
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-                clearInterval(scrollInterval);
-            }
-        }
-    }, 20);
-}
-
-function stopAutoScroll() {
-    clearInterval(scrollInterval);
-}
-
-window.addEventListener("scroll", () => {
-    userScrolling = true;
-    stopAutoScroll();
-
-    clearTimeout(window.scrollEndTimer);
-    window.scrollEndTimer = setTimeout(() => {
-        userScrolling = false;
-        startAutoScroll();
-    }, 2000);
-});
-
-window.onload = function() {
-    setTimeout(() => {
-        userScrolling = false;
-        startAutoScroll();
-    }, 2000);
-};
-
+   
     </script>
 
 </body>
