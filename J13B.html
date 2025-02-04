@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juff-13-Bass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            background: url('https://i.ibb.co/VY29D5WY/G-1.png'); 
+            background-size: cover;
+        }
+        body {
+            font-family: 'Raleway', sans-serif; 
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+        }
+        h1,h4 {
+            margin: 20px;
+            font-size: 3em;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            color: #fff;
+        }
+        h4 {
+            font-size: 2em;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 100px;
+        }
+        #commentsContainer {
+            margin-top: 100px;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+            font-family: 'Raleway', sans-serif; 
+            line-height: 1.6;
+        }
+        .card b {
+            display: block;
+            margin-top: 10px;
+            font-weight: 700;
+        }
+        .card em {
+            font-style: italic;
+            color: #555;
+        }
+        .comment-card {
+            background: white;
+            padding: 15px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        .hidden {
+            display: none;
+        }
+        ::-webkit-scrollbar {
+        width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+        background: #111;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background: #555;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #777;
+        }
+
+        body::-webkit-scrollbar {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Juff-13-Bass</h1>
+    <h4>13 Thank Yous For 13 Years Of Constant Love</h4>
+    <div class="container" id="messagesContainer"></div>
+    <h4>More gratitude from your subscribers</h4> 
+    <div class="container" id="commentsContainer"></div>
+    <div class="container" id="scrollMessageContainer"></div>
+    <h1>Thank you!</h1> 
+    
+    <script>
+        
+        const hiraMessage = "13 years of JuffBass, a channel entirely made with the purpose of being a bassist's heaven.<br><br>Seeing you put in crazy amounts of effort into your videos every time has always been impressive to watch, but nothing is more entertaining and joy-inducing than seeing the reactions to your glorious work and the gratitude from those who benefit from it—or simply enjoy it! It fills my heart with pride every time I see those videos and think, <i>'Hey, that's my friend over there! <3'</i><br><br>The pride is unreal. Simply put: <br><br>You're a wonderful human worth celebrating for all the days of stress you endure for every cover, searching for the perfect outcome. Worth cherishing for the care put into the details, the cautious and accurate tabbing, and the unwavering dedication to making it fun to watch as much as it is informative, with your little Regulus Regulus and the small Easter eggs you hide!<br><br> I just know all bassists view your channel as a treasure, so keep maintaining it like you've always done, knowing that you've got fans across the world cheering you on forever!<br><br>Happy 13th anniversary, Juff! ♡<br><br><b>- Hiraeth</b> <em>(@amphitrite_5)</em>";
+
+        const messages = [
+            "Juff is singlehandedly (along with Carlos Dengler, high praise) the reason I started playing bass.<br>My very first Juff cover and one of the first songs I learned was \"Is this it\" by The Strokes.<br>Looking back I remember finding the little bird segment cute but very very odd :D<br>Soon to find out it would be a recurring theme...<br>As the bass playing evolved so did the need for covers and who better to deliver? Fell in love with his Interpol covers, especially obstacle 1 due to the bird segment of \"She can read\" (iykyk)<br>Bass has become an amazing gateway for both having fun, making new connections, and just being a great lil getaway.<br>All those listed are also to find through Juff.<br>Joining the server is one of the best things I've ever done, hands down.<br>An amazing community which only reflects the wholesome and caring nature of its founder.<br>In short, you helped inspire me to pick up this amazing instrument, which in turn led me to inspire my friend, to pick up the very same instrument, soon another friend will buy a drum set and we'll go jamming in garages and whatnot!<br>Whether you choose to believe it's some sort of butterfly effect or just plain coincidence.<br>I find Juff very much at the center of it all. And for that I'll be forever grateful.<br>I've made friends for life! And made my existing friends' lifelong bond much stronger! All through bass!<br>And there's no spelling Juffbass without bass.<br><br>Thank you Juff<br>Even knowing I'll never be able to give even just a snippet back of what you've helped contribute to my life, I'll forever hold you in the highest of regards for your unwavering commitment and dedication to both your music, friends, and those bound to be.<br><br>A resounding nineteen thousand thank you's.<br><br><b>- Danny Boi</b> <em>(@skawl.)</em>",
+            "I've learnt so much from your tutorials and that your aspiration towards creating music has had an impact on me too.<br>I'm also just very glad to be your friend, you're a very sweet guy and I love you for that.<br><br><b>- Naut</b> <em>(@thenaut)</em>",
+            "Hey Juff!<br>Happy anniversary! You've inspired me so much, not only as a bassist, but as a musician in general, and I wouldn't be at the level I am today without you.<br>I've seen a lot of other creator-run discord servers in the past, and the one thing that separates the JuffServer from them is your unwavering commitment to this community you've built over the years. Every single person is absolutely fantastic, and instantly made me feel welcomed and a part of this wonderful community.<br>Happy 13 years, and here's to 13 more!<br><br><b>- Banjo</b> <em>(@banjoforg)</em>",
+            "Hey Juff! First of all, congrats on your channel's 13th anniversary!! You've achieved so much and inspired so many people along the way. I'm one of the inspired people and I wanted to thank you for the things that you've achieved: Youtube covers - As a huge Arctic Monkeys fan I had so much fun learning all of their songs, thanks to your bass covers! Your channel made me fall in love with bass, and birds🐦‍⬛<br>Music - I already mentioned it, but your music helped me with focus during studying, and inspired me to use my bass for creating my own melodies🎸<br>Community - You created something extraordinary: a Discord server where all of the people are kind and authentic, even though they come from different places around the world! It happens not more than once in a lifetime to be a part of such community on the Internet, that's why I'm very proud to be a part of it❤️<br>All of the things you've done definitely made me a better bassist, and probably a better person too! I'm also sure that I'm not the only one to feel that way. That's why I thank you for years of dedication, your words of advice, and your hard work, that you put everyday in order to help musicians and build a community!❤️<br><br><b>- stranger</b> <em>(@ziel0nyszczur)</em>",
+            "During my peak of listening to Arctic Monkeys I was so addicted to their music that I felt the need to express it in another way than just listening to them. That’s when I started borrowing my sister’s bass and looking up bass tabs videos on YouTube. I liked your videos the most because of the way you showed your technique AND the very chill bird. About a year later I bought my own bass so I could play Fiona whenever I wanted. Learning the bass also helped me look at music in a different way, a more understanding way. Fast forward to when I joined the Arctic Monkeys discord server. How amazing to be welcomed by the person affiliated with Arctic Monkeys that I had seen the most of, even more than Alex Turner. And how incredible to learn that a YouTuber you like is an amazing person.<br><br><b>- Ruben</b> <em>(@rubensson)</em>",
+            "Happy 13 years JuffBass!!! You are the best bass guide I know haha and this comes from a very recent experience. I had to learn a few songs 2 weeks ago for a lil performance where I was called to be the bassist and I messaged you and you replied with the notes so quick 😭🫶 (and I also put you on some new music ahha) You're truly awesome I'm excited for new videos and music!!!<br><br><b>- Teayah</b> <em>(@teayah)</em>",
+            "What can I even say about something so important to me? Even though I don't play bass, I wouldn't ever miss a cover or any JuffBass content, simply because I know that anything I come across will be of great quality and value. And I know it will be coming from a considerate and devoted person, who lives for giving to others. And that is something to cherish, so I can't help but feel pride when I think about this little part I get to take in the JuffBass corner of the world. Such an awesome place to be!<br><br><b>- Geet</b> <em>(@geetburger)</em>",
+            "13 years of JuffBass?? I think that’s a testament to your dedication of helping others! I didn’t have the slightest clue about bass but it’s always been fun to watch your videos and read the comments of those saying how helpful and great your videos are! My favorite videos to watch are the Metronomy ones because it’s a band I really like!! While I don’t see myself learning bass, I can confidently say that I’ve been able to hear it a lot more in songs! I’ll catch myself thinking “oh this bass is really nice” and that is definitely something I couldn’t do before! So thank you Juff, for all the time you put into your videos!<br><br><b>- Mariela</b> <em>(@mintymar)</em>",
+            "Hey Juffy!!<br>Happy 13 years of JuffBass! You are a wonderful musician, and an even better friend! The community is so lucky to have you! From your covers and teaching, to sharing your own music with the world, to even creating a whole new game that endlessly keeps us entertained, you have provided so much good! You have so much to be proud of Juffy and we are all so thankful for you! Since meeting you I’ve thought about getting a bass and when I do, I know you’ll absolutely be the right person to come to if I ever need a hand!<br><br><b>- Jacob</b> <em>(@trashman291)</em>",
+            "When I first listened to Emptiness Reigns, I didn't expect to find a whole friend waiting inside for me. I think that's the magic of JuffBass—no matter who you are, you aren't only finding music when you stumble upon his channel or Spotify page or him promoting his music in the Strokes server (hehe). You're signing yourself up for a reliable, creative, funny friend. In a way, his music reflects him. Even with just two bass guitars and nothing else, an album like Moments with Birds or Evenings on a Balcony feels like a friend playing away while you hang out on their bed scrolling your phone. JuffBass' music has helped me focus and get through studying for exams or particularly rough assignments, and yet that's not all. JuffBass himself has provided support, and even when I'm busy in ways unimaginable, he makes it clear that I'm always welcome to pop in just to go birding, groan when I get a turkey, and pop back out into the rushing river of my work. He will always offer a place to catch my breath before I keep running. From bass covers on YouTube to a friendly Discord server centered around his original work, it sounds like a dream come true, doesn't it? I hope Juff is enjoying his dream, and that it continues on, because he deserves it for all the kindness he puts out into the world.<br><br><b>- Johnny</b> <em>(@jukeboxcapm)</em>",
+            "Congrats to your 13th anniversary Juff! You are doing amazing and you are very talented. I wish you all of the best and you deserve it all so much. Keep it going, you got this!<br><br><b>- Emma</b> <em>(@capybara_2510)</em>",
+            "Thanks for the amazing and helpful covers birdman 😊<br><br><b>- Nut</b> <em>(@nut_clutter)</em>",
+            "Joyful<br>Unforgettable<br>Friendly<br>Fabulous<br>Beautiful<br>Awesome<br>Special<br>Spectacular <br><br><b>- Grace</b> <em>(@g_ze)</em>",
+        ];
+
+        const comments = [
+        "J12B/1.jpg",
+        "J12B/2.jpg",
+        "J12B/3.jpg",
+        "J12B/4.jpg",
+        "J12B/5.jpg",
+        "J12B/6.jpg",
+        "J12B/7.jpg",
+        "J12B/8.jpg",
+        "J12B/9.jpg",
+        "J12B/10.jpg",
+        "J12B/11.jpg",
+        "J12B/12.jpg",
+        "J12B/13.jpg",
+        "J12B/14.jpg",
+        "J12B/15.jpg",
+        "J12B/16.jpg",
+        "J12B/17.jpg",
+        "J12B/18.jpg",
+        "J12B/19.jpg",
+        "J12B/20.jpg",
+        "J12B/21.jpg",
+        "J12B/22.jpg",
+        "J12B/23.jpg",
+        "J12B/24.jpg",
+        "J12B/25.jpg",
+        "J12B/26.jpg",
+        "J12B/27.jpg",
+        "J12B/28.jpg",
+        "J12B/29.jpg",
+        "J12B/30.jpg",
+        "J12B/31.jpg",
+        "J12B/32.jpg",
+        "J12B/33.jpg",
+        "J12B/34.jpg",
+        "J12B/35.jpg",
+        "J12B/36.jpg",
+        "J12B/37.jpg",
+        "J12B/38.jpg",
+        "J12B/39.jpg",
+        "J12B/40.jpg",
+        "J12B/41.jpg",
+        "J12B/42.jpg",
+        "J12B/43.jpg",
+        "J12B/44.jpg",
+        "J12B/45.jpg",
+        "J12B/46.jpg",
+        "J12B/47.jpg",
+        "J12B/48.jpg",
+        "J12B/49.jpg",
+        "J12B/50.jpg",
+        "J12B/51.jpg",
+        "J12B/52.jpg",
+        "J12B/53.jpg",
+        "J12B/54.jpg",
+        "J12B/55.jpg",
+        "J12B/56.jpg",
+        "J12B/57.jpg",
+        "J12B/58.jpg",
+        "J12B/59.jpg",
+        "j12b/60.jpg",];
+           
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        shuffleArray(messages);
+        shuffleArray(comments);
+
+        messages.push(hiraMessage); // Add the specific message back at the end
+
+        const messagesContainer = document.getElementById("messagesContainer");
+        messages.forEach(msg => {
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = msg; 
+            messagesContainer.appendChild(card);
+        });
+
+        const commentsContainer = document.getElementById("commentsContainer");
+        comments.forEach(url => {
+            const img = document.createElement("img");
+            img.src = url;
+            img.className = "comment-card";
+            commentsContainer.appendChild(img);
+        });
+
+        let scrollInterval;
+        let userScrolling = false;
+
+        function startAutoScroll() {
+            scrollInterval = setInterval(() => {
+                if (!userScrolling) {
+                    window.scrollBy(0, 1);
+                    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                        clearInterval(scrollInterval);
+                    }
+                }
+            }, 25); 
+        }
+
+        function stopAutoScroll() {
+            clearInterval(scrollInterval);
+        }
+
+        window.onscroll = function() {
+            userScrolling = true;
+            stopAutoScroll();
+
+            const messagesContainer = document.getElementById("messagesContainer");
+            const scrollMessageContainer = document.getElementById("scrollMessageContainer");
+            const commentsContainer = document.getElementById("commentsContainer");
+
+            if ((window.innerHeight + window.scrollY) >= messagesContainer.offsetHeight) {
+                scrollMessageContainer.classList.remove("hidden");
+            }
+
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                commentsContainer.classList.remove("hidden");
+                startAutoScroll();
+            }
+        };
+
+        window.onload = function() {
+            setTimeout(() => {
+                userScrolling = false;
+            }, 500);
+        };
+    </script>
+
+</body>
+</html>
