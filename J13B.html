@@ -130,67 +130,20 @@
             "Joyful<br>Unforgettable<br>Friendly<br>Fabulous<br>Beautiful<br>Awesome<br>Special<br>Spectacular <br><br><b>- Grace</b> <em>(@g_ze)</em>",
         ];
 
-        const comments = [
-        "J12B/1.jpg",
-        "J12B/2.jpg",
-        "J12B/3.jpg",
-        "J12B/4.jpg",
-        "J12B/5.jpg",
-        "J12B/6.jpg",
-        "J12B/7.jpg",
-        "J12B/8.jpg",
-        "J12B/9.jpg",
-        "J12B/10.jpg",
-        "J12B/11.jpg",
-        "J12B/12.jpg",
-        "J12B/13.jpg",
-        "J12B/14.jpg",
-        "J12B/15.jpg",
-        "J12B/16.jpg",
-        "J12B/17.jpg",
-        "J12B/18.jpg",
-        "J12B/19.jpg",
-        "J12B/20.jpg",
-        "J12B/21.jpg",
-        "J12B/22.jpg",
-        "J12B/23.jpg",
-        "J12B/24.jpg",
-        "J12B/25.jpg",
-        "J12B/26.jpg",
-        "J12B/27.jpg",
-        "J12B/28.jpg",
-        "J12B/29.jpg",
-        "J12B/30.jpg",
-        "J12B/31.jpg",
-        "J12B/32.jpg",
-        "J12B/33.jpg",
-        "J12B/34.jpg",
-        "J12B/35.jpg",
-        "J12B/36.jpg",
-        "J12B/37.jpg",
-        "J12B/38.jpg",
-        "J12B/39.jpg",
-        "J12B/40.jpg",
-        "J12B/41.jpg",
-        "J12B/42.jpg",
-        "J12B/43.jpg",
-        "J12B/44.jpg",
-        "J12B/45.jpg",
-        "J12B/46.jpg",
-        "J12B/47.jpg",
-        "J12B/48.jpg",
-        "J12B/49.jpg",
-        "J12B/50.jpg",
-        "J12B/51.jpg",
-        "J12B/52.jpg",
-        "J12B/53.jpg",
-        "J12B/54.jpg",
-        "J12B/55.jpg",
-        "J12B/56.jpg",
-        "J12B/57.jpg",
-        "J12B/58.jpg",
-        "J12B/59.jpg",
-        "j12b/60.jpg",];
+       const comments = [
+    "J12B/1.jpg", "J12B/2.jpg", "J12B/3.jpg", "J12B/4.jpg", "J12B/5.jpg",
+    "J12B/6.jpg", "J12B/7.jpg", "J12B/8.jpg", "J12B/9.jpg", "J12B/10.jpg",
+    "J12B/11.jpg", "J12B/12.jpg", "J12B/13.jpg", "J12B/14.jpg", "J12B/15.jpg",
+    "J12B/16.jpg", "J12B/17.jpg", "J12B/18.jpg", "J12B/19.jpg", "J12B/20.jpg",
+    "J12B/21.jpg", "J12B/22.jpg", "J12B/23.jpg", "J12B/24.jpg", "J12B/25.jpg",
+    "J12B/26.jpg", "J12B/27.jpg", "J12B/28.jpg", "J12B/29.jpg", "J12B/30.jpg",
+    "J12B/31.jpg", "J12B/32.jpg", "J12B/33.jpg", "J12B/34.jpg", "J12B/35.jpg",
+    "J12B/36.jpg", "J12B/37.jpg", "J12B/38.jpg", "J12B/39.jpg", "J12B/40.jpg",
+    "J12B/41.jpg", "J12B/42.jpg", "J12B/43.jpg", "J12B/44.jpg", "J12B/45.jpg",
+    "J12B/46.jpg", "J12B/47.jpg", "J12B/48.jpg", "J12B/49.jpg", "J12B/50.jpg",
+    "J12B/51.jpg", "J12B/52.jpg", "J12B/53.jpg", "J12B/54.jpg", "J12B/55.jpg",
+    "J12B/56.jpg", "J12B/57.jpg", "J12B/58.jpg", "J12B/59.jpg", "J12B/60.jpg"
+];
            
 
         function shuffleArray(array) {
@@ -203,8 +156,7 @@
         shuffleArray(messages);
         shuffleArray(comments);
 
-        messages.push(hiraMessage); // Add the specific message back at the end
-
+        messages.push(hiraMessage); 
         const messagesContainer = document.getElementById("messagesContainer");
         messages.forEach(msg => {
             const card = document.createElement("div");
@@ -221,47 +173,42 @@
             commentsContainer.appendChild(img);
         });
 
-        let scrollInterval;
+       let scrollInterval;
         let userScrolling = false;
 
-        function startAutoScroll() {
-            scrollInterval = setInterval(() => {
-                if (!userScrolling) {
-                    window.scrollBy(0, 1);
-                    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-                        clearInterval(scrollInterval);
-                    }
-                }
-            }, 25); 
-        }
-
-        function stopAutoScroll() {
-            clearInterval(scrollInterval);
-        }
-
-        window.onscroll = function() {
-            userScrolling = true;
-            stopAutoScroll();
-
-            const messagesContainer = document.getElementById("messagesContainer");
-            const scrollMessageContainer = document.getElementById("scrollMessageContainer");
-            const commentsContainer = document.getElementById("commentsContainer");
-
-            if ((window.innerHeight + window.scrollY) >= messagesContainer.offsetHeight) {
-                scrollMessageContainer.classList.remove("hidden");
+function startAutoScroll() {
+    scrollInterval = setInterval(() => {
+        if (!userScrolling) {
+            window.scrollBy(0, 1);
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                clearInterval(scrollInterval);
             }
+        }
+    }, 20);
+}
 
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                commentsContainer.classList.remove("hidden");
-                startAutoScroll();
-            }
-        };
+function stopAutoScroll() {
+    clearInterval(scrollInterval);
+}
 
-        window.onload = function() {
-            setTimeout(() => {
-                userScrolling = false;
-            }, 500);
-        };
+window.addEventListener("scroll", () => {
+    userScrolling = true;
+    stopAutoScroll();
+
+    clearTimeout(window.scrollEndTimer);
+    window.scrollEndTimer = setTimeout(() => {
+        userScrolling = false;
+        startAutoScroll();
+    }, 2000);
+});
+
+window.onload = function() {
+    setTimeout(() => {
+        userScrolling = false;
+        startAutoScroll();
+    }, 500);
+};
+
     </script>
 
 </body>
